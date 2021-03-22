@@ -73,11 +73,20 @@ class MyContador extends React.Component {
             })
         }, 1000)
 
+        // Passandor valor pelo props
         return (
             <div>
                 <h2>{this.state.title}</h2>
-                <h3>{this.state.contador}</h3>
+                <Contador valor = { this.state.contador }/> 
             </div>
+        );
+    }
+}
+
+class Contador extends React.Component {
+    render() {
+        return (
+            <h3>{this.props.valor}</h3>
         );
     }
 }
