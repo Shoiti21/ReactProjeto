@@ -61,9 +61,18 @@ class MyContador extends React.Component {
         super(props);
         this.state = {
             title: "contador",
-            contador: 0
+            contador: 0,
+            contador2: 0
         }
     }
+
+    // Função de adicionar +1
+    adicionar() {
+        this.setState({
+            contador2: this.state.contador2 + 1
+        })
+    }
+
     render() {
         setTimeout( () => {
             // OBSERVAÇÃO - Se é chamado o metodo setState, o metodo render é chamado novamente
@@ -78,7 +87,8 @@ class MyContador extends React.Component {
             <div>
                 <h2>{this.state.title}</h2>
                 <Contador valor = { this.state.contador }/> 
-                <MyFuctionComponent valor = { this.state.contador }/>
+                <MyFuctionComponent valor = { this.state.contador2 }/>
+                <MyButton label="Adicionar +1" click={ () => this.adicionar()}/> 
             </div>
         );
     }
@@ -97,6 +107,11 @@ const MyFuctionComponent = function(props) {
         <h1>Functional Component = {props.valor}</h1>
     );
 }
+
+// São feitas chamadas por Arrow Function para não ter que fazer bind da função.
+const MyButton = (props) => (
+    <button onClick={ () => props.click() }>{ props.label }</button>
+);
 
 // Você pode criar um componente com um filho sendo também uma componente
 const myDiv = React.createElement(
