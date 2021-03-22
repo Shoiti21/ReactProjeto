@@ -14,11 +14,35 @@ const textHelloWithClass = React.createElement(
     'Olá mundo!'
 )
 
+/* Criação de um lista ul
+ * <div>
+ *     <h1 class="text-color-blue"></h1>
+ *     <ul>
+ *         <li class="item-1">Item 1</li>
+ *         <li class="item-2">Item 2</li>
+ *         <li class="item-3">Item 3</li>
+ *     </ul>
+ * </div>
+ */
+const myList = React.createElement(
+    'ul',
+    null,
+    [
+        React.createElement('li', { className: 'item-1' }, 'Item 1'),
+        React.createElement('li', { className: 'item-2' }, 'Item 2'),
+        React.createElement('li', { className: 'item-3' }, 'Item 3')
+    ]
+)
+
+
 // Você pode criar um componente com um filho sendo também uma componente
 const myDiv = React.createElement(
     'div',
     { className: 'my-div' },
-    textHelloWithClass
+    [
+        textHelloWithClass, 
+        myList
+    ]
 )
 
 // ReactDOM.render( componente, container ) - Renderiza o componente React no html
