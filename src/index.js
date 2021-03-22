@@ -78,6 +78,7 @@ class MyContador extends React.Component {
             <div>
                 <h2>{this.state.title}</h2>
                 <Contador valor = { this.state.contador }/> 
+                <MyFuctionComponent valor = { this.state.contador }/>
             </div>
         );
     }
@@ -89,6 +90,12 @@ class Contador extends React.Component {
             <h3>{this.props.valor}</h3>
         );
     }
+}
+
+const MyFuctionComponent = function(props) {
+    return (
+        <h1>Functional Component = {props.valor}</h1>
+    );
 }
 
 // Você pode criar um componente com um filho sendo também uma componente
