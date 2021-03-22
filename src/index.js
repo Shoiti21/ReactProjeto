@@ -54,6 +54,34 @@ class MyList extends React.Component {
     }
 }
 
+// Criação de um contador pasando paramentros do State
+// State é forma que armazenamos dados no React 
+class MyContador extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: "contador",
+            contador: 0
+        }
+    }
+    render() {
+        setTimeout( () => {
+            // OBSERVAÇÃO - Se é chamado o metodo setState, o metodo render é chamado novamente
+            // Nesse exempplo do contador - contructor() -> state = {} -> render() -> setTimeOut() -> setState() -> render() ...
+            this.setState({
+                contador: this.state.contador + 1
+            })
+        }, 1000)
+
+        return (
+            <div>
+                <h2>{this.state.title}</h2>
+                <h3>{this.state.contador}</h3>
+            </div>
+        );
+    }
+}
+
 // Você pode criar um componente com um filho sendo também uma componente
 const myDiv = React.createElement(
     'div',
@@ -77,4 +105,4 @@ class MyDiv extends React.Component {
 
 // ReactDOM.render( componente, container ) - Renderiza o componente React no html
 const container = document.getElementById('app');
-ReactDOM.render(<MyDiv/>, container);
+ReactDOM.render([<MyDiv/>, <MyContador/>], container);
