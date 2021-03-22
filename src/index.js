@@ -13,6 +13,14 @@ const textHelloWithClass = React.createElement(
     { className: 'text-color-blue' },
     'Olá mundo!'
 )
+// Criação do mesmo componente em JSX
+class TextHelloWithClass extends React.Component {
+    render() {
+        return (
+            <hi class="text-color-blue">Olá mundo!</hi>
+        );
+    }
+}
 
 /* Criação de um lista ul
  * <div>
@@ -33,18 +41,40 @@ const myList = React.createElement(
         React.createElement('li', { className: 'item-3' }, 'Item 3')
     ]
 )
-
+// Criação do mesmo componente em JSX
+class MyList extends React.Component {
+    render() {
+        return (
+            <ul>
+                <li class="item-1">Item 1</li>
+                <li class="item-2">Item 2</li>
+                <li class="item-3">Item 3</li>
+            </ul>
+        );
+    }
+}
 
 // Você pode criar um componente com um filho sendo também uma componente
 const myDiv = React.createElement(
     'div',
     { className: 'my-div' },
     [
-        textHelloWithClass, 
-        myList
+        <TextHelloWithClass/>, // posso usar  <TextHelloWithClass><TextHelloWithClass/>
+        <MyList/>
     ]
 )
+// Criação do mesmo componente em JSX
+class MyDiv extends React.Component {
+    render() {
+        return (
+            <div class="my-div">
+                <TextHelloWithClass/>
+                <MyList/>
+            </div>
+        );
+    }
+}
 
 // ReactDOM.render( componente, container ) - Renderiza o componente React no html
 const container = document.getElementById('app');
-ReactDOM.render(myDiv, container);
+ReactDOM.render(<MyDiv/>, container);
