@@ -14,6 +14,13 @@ const textHelloWithClass = React.createElement(
     'Olá mundo!'
 )
 
+// Você pode criar um componente com um filho sendo também uma componente
+const myDiv = React.createElement(
+    'div',
+    { className: 'my-div' },
+    textHelloWithClass
+)
+
 // ReactDOM.render( componente, container ) - Renderiza o componente React no html
 const container = document.getElementById('app');
-ReactDOM.render(textHelloWithClass, container);
+ReactDOM.render(myDiv, container);
