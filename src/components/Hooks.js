@@ -1,5 +1,5 @@
 import React from 'react'
-
+// Use Hooks Apenas Dentro de Funções do React
 export default function Hooks(){
 
     /* setState - criar state em uma função sem a necessidade de criar uma class com um construtor
@@ -19,6 +19,11 @@ export default function Hooks(){
         document.title = contador; // Altera titulo toda vez que o 'contador' muda.
     })
 
+    /* 
+     * CRIANDO UM HOOK
+     * Um Hook customizado é uma função JavaScript
+     */
+    const chegou = usePrimeiroHook(contador)
 
     return (
       <div>
@@ -26,6 +31,22 @@ export default function Hooks(){
         <button onClick={() => setContador(contador + 1)}>
           Click aqui
         </button>
+        <h2>Hook customizado</h2>
+        {chegou ? <p>Chegou no 10</p> : <p>Não chegou no 10</p>}
       </div>
     );
+}
+
+/* 
+ * HOOK CUSTOMIZADO
+ */
+function usePrimeiroHook(numero) {
+
+    const [chegouDez, setChegouDez] = React.useState(null);
+
+    React.useEffect(() => {
+        setChegouDez(numero >= 10)
+    })
+
+    return chegouDez;
 }
