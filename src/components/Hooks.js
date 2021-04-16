@@ -11,6 +11,15 @@ export default function Hooks(){
 
     const [contador, setContador] = React.useState(0);
 
+    /* useEffect - React executa os efeitos após cada renderização incluindo a primeira renderização. 
+     * Similar a componentDidMount e componentDidUpdate
+     * useEffect(*arrow function)
+     */
+    React.useEffect(() => {
+        document.title = contador; // Altera titulo toda vez que o 'contador' muda.
+    })
+
+
     return (
       <div>
         <h2>Você apertou {contador}</h2>
