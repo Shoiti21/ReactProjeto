@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import Hooks from './components/Hooks';
 import PrimeirosPassos from './components/PrimeirosPassos';
+import Context from './components/Context';
+import {TypeContext} from './components/UserContext';
 
 // Importar o css para que o React encontre a class.
 import './index.css';
@@ -18,4 +20,15 @@ ReactDOM.render(<PrimeirosPassos/>, container);
  */
 
 const containerHooks = document.getElementById('hooks');
-ReactDOM.render(<Hooks/>, containerHooks);
+ReactDOM.render([<Hooks/>], containerHooks);
+
+/* Sem Context
+const containerHooksContext = document.getElementById('hooks-context');
+ReactDOM.render(<Context theme="password"/>, containerHooksContext); 
+*/
+const containerHooksContext = document.getElementById('hooks-context');
+ReactDOM.render(
+    <TypeContext.Provider value="password">
+        <Context/>
+    </TypeContext.Provider>, 
+    containerHooksContext); 
