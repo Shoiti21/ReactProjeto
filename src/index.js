@@ -5,6 +5,7 @@ import Hooks from './components/Hooks';
 import PrimeirosPassos from './components/PrimeirosPassos';
 import Context from './components/Context';
 import {TypeContext} from './components/UserContext';
+import Reducer from './components/Reducer';
 
 // Importar o css para que o React encontre a class.
 import './index.css';
@@ -32,3 +33,9 @@ ReactDOM.render(
         <Context/>
     </TypeContext.Provider>, 
     containerHooksContext); 
+
+// useReducer
+const containerHooksReducer = document.getElementById('hooks-reducer');
+ReactDOM.render(
+    <Reducer/>, 
+    containerHooksReducer); 
