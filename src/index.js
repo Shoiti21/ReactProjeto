@@ -6,6 +6,7 @@ import PrimeirosPassos from './components/PrimeirosPassos';
 import Context from './components/Context';
 import {TypeContext} from './components/UserContext';
 import Reducer from './components/Reducer';
+import Memo from './components/Memo'
 
 // Importar o css para que o React encontre a class.
 import './index.css';
@@ -39,3 +40,9 @@ const containerHooksReducer = document.getElementById('hooks-reducer');
 ReactDOM.render(
     <Reducer/>, 
     containerHooksReducer); 
+
+// useMemo
+const containerHooksMemo = document.getElementById('hooks-memo');
+ReactDOM.render(
+    <Memo/>, 
+    containerHooksMemo); 
