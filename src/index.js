@@ -6,7 +6,8 @@ import PrimeirosPassos from './components/PrimeirosPassos';
 import Context from './components/Context';
 import {TypeContext} from './components/UserContext';
 import Reducer from './components/Reducer';
-import Memo from './components/Memo'
+import Memo from './components/Memo';
+import Callback from './components/Callback'
 
 // Importar o css para que o React encontre a class.
 import './index.css';
@@ -45,4 +46,10 @@ ReactDOM.render(
 const containerHooksMemo = document.getElementById('hooks-memo');
 ReactDOM.render(
     <Memo/>, 
-    containerHooksMemo); 
+    containerHooksMemo);
+
+// useCallback
+const containerHooksCallback = document.getElementById('hooks-callback');
+ReactDOM.render(
+    <Callback/>, 
+    containerHooksCallback); 
