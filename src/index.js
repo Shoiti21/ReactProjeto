@@ -7,7 +7,8 @@ import Context from './components/Context';
 import {TypeContext} from './components/UserContext';
 import Reducer from './components/Reducer';
 import Memo from './components/Memo';
-import Callback from './components/Callback'
+import Callback from './components/Callback';
+import Ref from './components/Ref';
 
 // Importar o css para que o React encontre a class.
 import './index.css';
@@ -53,3 +54,9 @@ const containerHooksCallback = document.getElementById('hooks-callback');
 ReactDOM.render(
     <Callback/>, 
     containerHooksCallback); 
+
+// useRef
+const containerHooksRef = document.getElementById('hooks-ref');
+ReactDOM.render(
+    <Ref/>, 
+    containerHooksRef); 
